@@ -1,17 +1,27 @@
-class Vehicle {
+abstract class Vehicle {
 
-    void accelerate() {
-        System.out.println("I am accelerating!");
+    abstract void accelerate();
+
+    void breaking() {
+        System.out.println("Hitting the breaks");
     }
 }
 
 class Bike extends Vehicle {
 
+    @Override
+    void accelerate() {
+        System.out.println("Pedalling");
+    }
 }
 
 class Car extends Vehicle {
-
     boolean hasFourWheels = true;
+
+    @Override
+    void accelerate() {
+        System.out.println("Hitting the gas");
+    }
 }
 
 class BMW extends Car {
@@ -23,27 +33,27 @@ public class OOP {
 
     public static void main(String[] args) {
 
-        Vehicle newVehicle = new Vehicle();
-        newVehicle.accelerate();
 
         System.out.println();
 
         Car newCar = new Car();
         newCar.accelerate();
-        System.out.println(newCar.hasFourWheels);
+
+        Bike newBike = new Bike();
+        newBike.accelerate();
 
         System.out.println();
 
-        BMW newBMW = new BMW();
-        System.out.println(newBMW.hasFourWheels);
-        newBMW.accelerate();
-        System.out.println(newBMW.logo);
-
-
         Vehicle anotherNewVehicle = new Car();
-        anotherNewVehicle = new Bike();
-        anotherNewVehicle = new Car();
-
         anotherNewVehicle.accelerate();
+
+        anotherNewVehicle = new Bike();
+        anotherNewVehicle.accelerate();
+
+        anotherNewVehicle = new Car();
+        anotherNewVehicle.accelerate();
+
+        Integer number = 1;
+        Double number2 = 1.1;
     }
 }
